@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "driving-jev"
+version = "0.1.0"
+description = "Watch Jev make lane and speed decisions in a highway driving simulation."
+requires-python = ">=3.13"
+dependencies = ["highway-env==1.12.1", "pygame-ce==2.5.8", "typesafe-sdk==0.7.0", "python-dotenv>=1,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.9"]
+
+[project.scripts]
+driving-jev = "driving_jev.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/driving_jev"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
